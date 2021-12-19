@@ -6,7 +6,7 @@ public class Employee {
     public final String middleName;
     public String department;
     public int salary;
-    public static int id = 0;
+    public static int ID = 0;
 
     public Employee(String firstName, String lastName, String middleName, String department, int salary) {
         this.firstName = firstName;
@@ -14,7 +14,7 @@ public class Employee {
         this.middleName = middleName;
         this.department = department;
         this.salary = salary;
-        id = id + 1;
+        ID++;
     }
 
     public String getFirstName() {
@@ -43,7 +43,7 @@ public class Employee {
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public void setDepartment(String department) {
