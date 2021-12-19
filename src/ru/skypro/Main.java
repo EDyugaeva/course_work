@@ -194,7 +194,7 @@ public class Main {
         temp = (float) (1 + arg / 100f);
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && employees[i].department.equals(department)) {
-                employees[i].salary = (int) (employees[i].salary * temp);
+                employees[i].setSalary((int) (employees[i].salary * temp));
             }
         }
     }
