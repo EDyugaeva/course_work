@@ -270,21 +270,54 @@ public class EmployeeBook {
         }
     }
 
-    public String listOfEmployeesInDepartments() {
-        StringBuilder sb = new StringBuilder("Books: ");
+    private String[] findDepartments() {
         int countOfDepartments = 5;
-        String[] departments = new String[countOfDepartments - 1];
+        String[] departments = new String[countOfDepartments];
+        departments[0] = employeeBook[0].department;
         for (int i = 0; i < employeeBook.length; i++) {
-            if (employeeBook[i] != null) {
-                departments[i] = employeeBook[i].department;
+            if (departments[0] != employeeBook[i].department) {
+                departments[1] = employeeBook[i].department;
+                break;
             }
         }
-        for (int i = 0; i < departments.length; i++) {
-            sb.append(departments[i]);
-            sb.append(System.lineSeparator());
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (departments[0] != employeeBook[i].department && departments[1] != employeeBook[i].department) {
+                departments[2] = employeeBook[i].department;
+                break;
+            }
+        }
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (departments[0] != employeeBook[i].department
+                    && departments[1] != employeeBook[i].department
+                    && departments[2] != employeeBook[i].department) {
+                departments[3] = employeeBook[i].department;
+                break;
+            }
+        }
+
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (departments[0] != employeeBook[i].department
+                    && departments[1] != employeeBook[i].department
+                    && departments[2] != employeeBook[i].department
+                    && departments[3] != employeeBook[i].department) {
+                departments[4] = employeeBook[i].department;
+                break;
+            }
+        }
+        return departments;
+    }
+
+    public void listOfEmployeesInDepartments() {
+        int countOfDepartments = 5;
+        for (int j = 0; j < countOfDepartments; j++) {
+            System.out.println("Отдел " + findDepartments()[j] + " :");
+            for (int i = 0; i < employeeBook.length; i++) {
+                if (employeeBook[i] != null && employeeBook[i].department.equals(findDepartments()[j])) {
+                    System.out.println(employeeBook[i].toString());
+                }
+            }
 
         }
-        return sb.toString();
     }
 }
 

@@ -12,20 +12,11 @@ public class Main {
         bookEmp.addEmployee(new Employee("Юрий", "Радомский", "Викторович", "3", 70_000));
         bookEmp.addEmployee(new Employee("Игорь", "Огурцов", "Анатольевич", "4", 50_000));
         bookEmp.addEmployee(new Employee("Игорь", "Огурцов", "Анатольевич", "4", 50_000));
+        bookEmp.addEmployee(new Employee("Игорь", "Огурцов", "Анатольевич", "1", 50_000));
 
-        System.out.println(bookEmp.listOfEmployeesInDepartments());
-
-
-
-    }
-
-    public static void printMassiveEmployee(Employee[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null) {
-                System.out.println(arr[i]);
-            }
-        }
-    }
+        bookEmp.listOfEmployeesInDepartments();
 
 
     }
+
+}
