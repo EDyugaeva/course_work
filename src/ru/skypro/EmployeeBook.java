@@ -20,75 +20,14 @@ public class EmployeeBook {
 
     }
 
+    //basic
+
     public void listOfEmployees() {
         for (int i = 0; i < employeeBook.length; i++) {
             if (employeeBook[i] != null) System.out.println(employeeBook[i]);
 
         }
     }
-
-    public int countElements() {
-        int j = 0;
-        for (int i = 0; i < employeeBook.length; i++) {
-            if (employeeBook[i] != null) {
-                j++;
-            }
-        }
-        return j;
-    }
-
-    public boolean addEmployee(Employee newEmployee) {
-        for (int i = 0; i < employeeBook.length; i++) {
-            if (employeeBook[i] == null) {
-                employeeBook[i] = newEmployee;
-                return true;
-            } else {
-            }
-        }
-        return false;
-    }
-
-    public boolean deleteEmployee(String firstName, String lastName, String middleName) {
-        for (int i = 0; i < employeeBook.length; i++) {
-            if (employeeBook[i].firstName.equals(firstName)
-                    && employeeBook[i].lastName.equals(lastName)
-                    && employeeBook[i].middleName.equals(middleName)) {
-                employeeBook[i] = null;
-                return true;
-            } else {
-            }
-        }
-        return false;
-    }
-
-    public boolean changeEmployee(String firstName, String lastName, String middleName, String department) {
-        for (int i = 0; i < employeeBook.length; i++) {
-            if (employeeBook[i].firstName.equals(firstName)
-                    && employeeBook[i].lastName.equals(lastName)
-                    && employeeBook[i].middleName.equals(middleName)) {
-                employeeBook[i].setDepartment(department);
-                return true;
-            } else {
-            }
-        }
-        return false;
-
-    }
-
-    public boolean changeEmployee(String firstName, String lastName, String middleName, int salary) {
-        for (int i = 0; i < employeeBook.length; i++) {
-            if (employeeBook[i].firstName.equals(firstName)
-                    && employeeBook[i].lastName.equals(lastName)
-                    && employeeBook[i].middleName.equals(middleName)) {
-                employeeBook[i].setSalary(salary);
-                return true;
-            } else {
-            }
-        }
-        return false;
-
-    }
-
 
     public int sum() {
         int sum = 0;
@@ -118,15 +57,6 @@ public class EmployeeBook {
         }
         return tempEmployee;
     }
-
-//    private EmployeeBook massiveToBook(Employee[] arr) {
-//        EmployeeBook newBook = new EmployeeBook(arr.length);
-//        for (int i = 0; i < arr.length; i++) {
-//            addEmployee(arr[i]);
-//        }
-//        return newBook;
-//    }
-
 
     public Employee[] employeeMaxSalary() {
         int temp = Integer.MIN_VALUE;
@@ -159,6 +89,9 @@ public class EmployeeBook {
             }
         }
     }
+
+
+    // medium
 
     public void indexSalary(int arg) {
         float temp = (float) (1 + arg / 100f);
@@ -251,7 +184,6 @@ public class EmployeeBook {
         }
     }
 
-
     // поиск по зарплате
 
     public void findEmployeeWithHigherSalary(int salary) {
@@ -269,6 +201,85 @@ public class EmployeeBook {
             }
         }
     }
+
+    public boolean addEmployee(Employee newEmployee) {
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (employeeBook[i] == null) {
+                employeeBook[i] = newEmployee;
+                return true;
+            } else {
+            }
+        }
+        return false;
+    }
+
+    public boolean deleteEmployee(String firstName, String lastName, String middleName) {
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (employeeBook[i].firstName.equals(firstName)
+                    && employeeBook[i].lastName.equals(lastName)
+                    && employeeBook[i].middleName.equals(middleName)) {
+                employeeBook[i] = null;
+                return true;
+            } else {
+            }
+        }
+        return false;
+    }
+
+    public boolean changeEmployee(String firstName, String lastName, String middleName, String department) {
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (employeeBook[i].firstName.equals(firstName)
+                    && employeeBook[i].lastName.equals(lastName)
+                    && employeeBook[i].middleName.equals(middleName)) {
+                employeeBook[i].setDepartment(department);
+                return true;
+            } else {
+            }
+        }
+        return false;
+
+    }
+
+    public boolean changeEmployee(String firstName, String lastName, String middleName, int salary) {
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (employeeBook[i].firstName.equals(firstName)
+                    && employeeBook[i].lastName.equals(lastName)
+                    && employeeBook[i].middleName.equals(middleName)) {
+                employeeBook[i].setSalary(salary);
+                return true;
+            } else {
+            }
+        }
+        return false;
+    }
+    public void listOfEmployeesInDepartments() {
+        int countOfDepartments = 5;
+        for (int j = 0; j < countOfDepartments; j++) {
+            System.out.println("Отдел " + findDepartments()[j] + " :");
+            for (int i = 0; i < employeeBook.length; i++) {
+                if (employeeBook[i] != null && employeeBook[i].department.equals(findDepartments()[j])) {
+                    System.out.println(employeeBook[i].toString());
+                }
+            }
+
+        }
+    }
+
+    // other
+
+
+    private int countElements() {
+        int j = 0;
+        for (int i = 0; i < employeeBook.length; i++) {
+            if (employeeBook[i] != null) {
+                j++;
+            }
+        }
+        return j;
+    }
+
+
+
 
     private String[] findDepartments() {
         int countOfDepartments = 5;
@@ -307,17 +318,6 @@ public class EmployeeBook {
         return departments;
     }
 
-    public void listOfEmployeesInDepartments() {
-        int countOfDepartments = 5;
-        for (int j = 0; j < countOfDepartments; j++) {
-            System.out.println("Отдел " + findDepartments()[j] + " :");
-            for (int i = 0; i < employeeBook.length; i++) {
-                if (employeeBook[i] != null && employeeBook[i].department.equals(findDepartments()[j])) {
-                    System.out.println(employeeBook[i].toString());
-                }
-            }
 
-        }
-    }
 }
 
