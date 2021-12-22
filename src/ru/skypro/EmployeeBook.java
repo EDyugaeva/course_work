@@ -22,14 +22,14 @@ public class EmployeeBook {
 
     //basic
 
-    public void listOfEmployees() {
+    public void printListOfEmployees() {
         for (int i = 0; i < employeeBook.length; i++) {
             if (employeeBook[i] != null) System.out.println(employeeBook[i]);
 
         }
     }
 
-    public int sum() {
+    public int getSumSalary() {
         int sum = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             if (employeeBook[i] != null) {
@@ -39,7 +39,7 @@ public class EmployeeBook {
         return sum;
     }
 
-    public Employee[] employeeMinSalary() {
+    public Employee[] getEmployeeMinSalary() {
         int temp = Integer.MAX_VALUE;
         Employee[] tempEmployee = new Employee[employeeBook.length];
         int k = 0;
@@ -58,7 +58,7 @@ public class EmployeeBook {
         return tempEmployee;
     }
 
-    public Employee[] employeeMaxSalary() {
+    public Employee[] getEmployeeMaxSalary() {
         int temp = Integer.MIN_VALUE;
         Employee[] tempEmployee = new Employee[employeeBook.length];
         int k = 0;
@@ -77,8 +77,8 @@ public class EmployeeBook {
         return tempEmployee;
     }
 
-    public int mediumSalary() {
-        int medium = sum() / countElements();
+    public int getMediumSalary() {
+        int medium = getSumSalary() / countElements();
         return medium;
     }
 
@@ -142,7 +142,7 @@ public class EmployeeBook {
 
     }
 
-    public int sumInDepartment(String department) {
+    public int getSumInDepartment(String department) {
         int sum = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             if (employeeBook[i] != null && employeeBook[i].department.equals(department)) {
@@ -152,14 +152,14 @@ public class EmployeeBook {
         return sum;
     }
 
-    public int mediumInDepartment(String department) {
+    public int getMediumSalaryInDepartment(String department) {
         int j = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             if (employeeBook[i] != null && employeeBook[i].department.equals(department)) {
                 j = j + 1;
             }
         }
-        int medium = sumInDepartment(department) / j;
+        int medium = getSumInDepartment(department) / j;
         return medium;
 
     }
@@ -252,7 +252,7 @@ public class EmployeeBook {
         }
         return false;
     }
-    public void listOfEmployeesInDepartments() {
+    public void printListOfEmployeesInDepartments() {
         int countOfDepartments = 5;
         for (int j = 0; j < countOfDepartments; j++) {
             System.out.println("Отдел " + findDepartments()[j] + " :");

@@ -1,12 +1,12 @@
 package ru.skypro;
 
 public class Employee {
+    private static int count = 0;
     public final String firstName;
     public final String lastName;
     public final String middleName;
     public String department;
     public int salary;
-    private static int count = 0;
     public int id;
 
     public Employee(String firstName, String lastName, String middleName, String department, int salary) {
