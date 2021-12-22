@@ -14,7 +14,7 @@ public class Main {
         bookEmp.addEmployee(new Employee("Игорь", "Огурцов", "Анатольевич", "4", 50_000));
         bookEmp.addEmployee(new Employee("Игорь", "Огурцов", "Анатольевич", "1", 50_000));
 
-        bookEmp.listOfEmployeesInDepartments();
+        bookEmp.printListOfEmployeesInDepartments();
 
 
 

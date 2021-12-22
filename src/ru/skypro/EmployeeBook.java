@@ -77,8 +77,8 @@ public class EmployeeBook {
         return tempEmployee;
     }
 
-    public int getMediumSalary() {
-        int medium = getSumSalary() / countElements();
+    public float getMediumSalary() {
+        float medium = (float) getSumSalary() / countElements();
         return medium;
     }
 
@@ -152,14 +152,14 @@ public class EmployeeBook {
         return sum;
     }
 
-    public int getMediumSalaryInDepartment(String department) {
-        int j = 0;
+    public float getMediumSalaryInDepartment(String department) {
+        int countEmployeesInDepartment = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             if (employeeBook[i] != null && employeeBook[i].department.equals(department)) {
-                j = j + 1;
+                countEmployeesInDepartment = countEmployeesInDepartment + 1;
             }
         }
-        int medium = getSumInDepartment(department) / j;
+        float medium =  (float) getSumInDepartment(department)/ (float) countEmployeesInDepartment;
         return medium;
 
     }
@@ -207,7 +207,6 @@ public class EmployeeBook {
             if (employeeBook[i] == null) {
                 employeeBook[i] = newEmployee;
                 return true;
-            } else {
             }
         }
         return false;
@@ -220,7 +219,6 @@ public class EmployeeBook {
                     && employeeBook[i].middleName.equals(middleName)) {
                 employeeBook[i] = null;
                 return true;
-            } else {
             }
         }
         return false;
